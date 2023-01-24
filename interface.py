@@ -129,7 +129,7 @@ class Interface:
 run = True
 pot = ['B0','B1','B2','J0']
 liste_cartes= ['B0','B1','B2','J0','J1','J2','4+', 'R0', 'R1','4+']
-nom = input("Votre nom : ")
+#nom = input("Votre nom : ")
 while run :
 
     pygame.init()
@@ -137,7 +137,7 @@ while run :
     fenetre.affichePioche()
     fenetre.afficheCartePioche()
     fenetre.afficheCentre()
-    fenetre.afficheNom(nom)
+    #fenetre.afficheNom(nom)
     fenetre.afficheEmplacementsCartes()
     listex=fenetre.AfficheMain(liste_cartes)
     fenetre.AfficheMainOrdi(pot)
