@@ -11,197 +11,168 @@ class Joueur():
         self.main = []
         self.distribueJoueur(pioche)
 
-    def trieMain(self):
-        """
-        Trie la main prise en paramètre en plaçant de gauche à droite
-        les cartes jaunes, les cartes bleu, les cartes rouge, les cartes vert  puis les noires."""
-        JauneMain, BleuMain, RougeMain, VertMain, NoirMain = [], [], [], [], []
-        for carte in self.main:
-            if carte in Jeu.listeJaune: # Si problème revoir jaune
-                i = 0
-                while len(JauneMain) > i:
-                    i += 1
-                JauneMain.insert(i, carte)
-            if carte in Jeu.listeBleu:
-                if carte in BleuMain:
-                    BleuMain.insert(BleuMain.index(carte), carte)
-                else:
-                    BleuMain.append(carte)
-            if carte in Jeu.listeRouge:
-                if carte in RougeMain:
-                    RougeMain.insert(RougeMain.index(carte), carte)
-                else:
-                    RougeMain.append(carte)
-            if carte in Jeu.listeRouge:
-                if carte in VertMain:
-                    VertMain.insert(VertMain.index(carte), carte)
-                else:
-                    VertMain.append(carte)
-            if carte in Jeu.listeNoir:
-                NoirMain.append(carte)
-        self.main = JauneMain + BleuMain + RougeMain + VertMain + NoirMain
-
     def distribueJoueur(self, pioche):
         """Distribue 7 cartes au joueur au début de la partie."""
         for _ in range(7):
             self.main.append(pioche.pop(0))
-        self.trieMain()
+            print(self.main)
 
     def joue(self, pioche, pot):
         """Fais joueur un joueur automatiquement."""
-        listec = ['J', 'B', 'R', 'V']
+        listec = ["J", "B", "R", "V"]
         #Si attaqué par +2 ou +4
         if pot[-1] == "4+J":
             for i in self.main:
                 if self.main[i] == "J+":
-                    pot.append(self.main[i].pop(0))
-                    return self.nom + " a posé" + pot[-1], False
+                    pot.append(self.main.pop(i))
+                    return False
                 elif self.main[i] == "4+":
                     c = random.choice(listec)
-                    pot.append(self.main[i].pop(0)+c)
-                    return self.nom + " a posé" + pot[-1], False
+                    pot.append(self.main.pop(i)+c)
+                    return False
                 else:
                     for _ in range(4):
                         self.main.append(pioche.pop(0))
-                        pot.append('J')
-                    return self.nom + " a pioché 4 cartes", False
+                    pot.append("J")
+                    return False
         if pot[-1] == "4+B":
             for i in self.main:
                 if self.main[i] == "B+":
-                    pot.append(self.main[i].pop(0))
-                    return self.nom + " a posé" + pot[-1], False
+                    pot.append(self.main.pop(i))
+                    return False
                 elif self.main[i] == "4+":
                     c = random.choice(listec)
-                    pot.append(self.main[i].pop(0)+c)
-                    return self.nom + " a posé" + pot[-1], False
+                    pot.append(self.main.pop(i)+c)
+                    return False
                 else:
                     for _ in range(4):
                         self.main.append(pioche.pop(0))
-                        pot.append('B')
-                    return self.nom + " a pioché 4 cartes", False
+                    pot.append("B")
+                    return False
         if pot[-1] == "4+R":
             for i in self.main:
                 if self.main[i] == "R+":
-                    pot.append(self.main[i].pop(0))
-                    return self.nom + " a posé" + pot[-1], False
+                    pot.append(self.main.pop(i))
+                    return False
                 elif self.main[i] == "4+":
                     c = random.choice(listec)
-                    pot.append(self.main[i].pop(0)+c)
-                    return self.nom + " a posé" + pot[-1], False
+                    pot.append(self.main.pop(i)+c)
+                    return False
                 else:
                     for _ in range(4):
                         self.main.append(pioche.pop(0))
-                        pot.append('R')
-                    return self.nom + " a pioché 4 cartes", False
+                    pot.append("R")
+                    return False
         if pot[-1] == "4+V":
             for i in self.main:
                 if self.main[i] == "V+":
-                    pot.append(self.main[i].pop(0))
-                    return self.nom + " a posé" + pot[-1], False
+                    pot.append(self.main.pop(i))
+                    return False
                 elif self.main[i] == "4+":
                     c = random.choice(listec)
-                    pot.append(self.main[i].pop(0)+c)
-                    return self.nom + " a posé" + pot[-1], False
+                    pot.append(self.main.pop(i)+c)
+                    return False
                 else:
                     for _ in range(4):
                         self.main.append(pioche.pop(0))
-                        pot.append('V')
-                    return self.nom + " a pioché 4 cartes", False
+                    pot.append("V")
+                    return False
 
-        if pot[-1] in Jeu.Listeplus2:
+        if pot[-1] in Jeu.listeplus2:
             for i in self.main:
-                if self.main[i] in Jeu.Listeplus2:
-                    pot.append(self.main[i].pop(0))
-                    return self.nom + " a posé" + pot[-1], False
+                if self.main[i] in Jeu.listeplus2:
+                    pot.append(self.main.pop(i))
+                    return False
                 elif self.main[i] == "4+":
                     c = random.choice(listec)
-                    pot.append(self.main[i].pop(0) + c)
-                    return self.nom + " a posé" + pot[-1], False
+                    pot.append(self.main.pop(i) + c)
+                    return False
                 else:
                     for _ in range(2):
                         self.main.append(pioche.pop(0))
-                        pot.append(pot[-1][0])
-                    return self.nom + " a pioché 2 cartes", False
+                    pot.append(pot[-1][0])
+                    return False
 
-        if pot[-1] in Jeu.ListeJaune:
+        if pot[-1] in Jeu.listeJaune:
             for i in self.main:
-                if self.main[i] in Jeu.ListeJaune:
-                    pot.append(self.main[i].pop(0))
-                    return self.nom + " a posé " + pot[-1], False
-        if pot[-1] in Jeu.ListeBleu:
+                if self.main[i] in Jeu.listeJaune:
+                    pot.append(self.main.pop(i))
+                    return False
+        if pot[-1] in Jeu.listeBleu:
             for i in self.main:
-                if self.main[i] in Jeu.ListeBleu:
-                    pot.append(self.main[i].pop(0))
-                    return self.nom + " a posé " + pot[-1], False
-        if pot[-1] in Jeu.ListeRouge:
+                if self.main[i] in Jeu.listeBleu:
+                    pot.append(self.main.pop(i))
+                    return False
+        if pot[-1] in Jeu.listeRouge:
             for i in self.main:
-                if self.main[i] in Jeu.ListeRouge:
-                    pot.append(self.main[i].pop(0))
-                    return self.nom + " a posé " + pot[-1], False
-        if pot[-1] in Jeu.ListeVert:
+                if self.main[i] in Jeu.listeRouge:
+                    pot.append(self.main.pop(i))
+                    return False
+        if pot[-1] in Jeu.listeVert:
             for i in self.main:
-                if self.main[i] in Jeu.ListeVert:
-                    pot.append(self.main[i].pop(0))
-                    return self.nom + " a posé " + pot[-1], False
+                if self.main[i] in Jeu.listeVert:
+                    pot.append(self.main.pop(i))
+                    return False
 
-        if pot[-1] in Jeu.Liste1:
+        if pot[-1] in Jeu.liste1:
             for i in self.main:
-                if self.main[i] in Jeu.Liste1:
-                    pot.append(self.main[i].pop(0))
-                    return self.nom + " a posé " + pot[-1], False
-        if pot[-1] in Jeu.Liste2:
+                if self.main[i] in Jeu.liste1:
+                    pot.append(self.main.pop(i))
+                    return False
+        if pot[-1] in Jeu.liste2:
             for i in self.main:
-                if self.main[i] in Jeu.Liste2:
-                    pot.append(self.main[i].pop(0))
-                    return self.nom + " a posé " + pot[-1], False
-        if pot[-1] in Jeu.Liste3:
+                if self.main[i] in Jeu.liste2:
+                    pot.append(self.main.pop(i))
+                    return False
+        if pot[-1] in Jeu.liste3:
             for i in self.main:
-                if self.main[i] in Jeu.Liste3:
-                    pot.append(self.main[i].pop(0))
-                    return self.nom + " a posé " + pot[-1], False
-        if pot[-1] in Jeu.Liste4:
+                if self.main[i] in Jeu.liste3:
+                    pot.append(self.main.pop(i))
+                    return False
+        if pot[-1] in Jeu.liste4:
             for i in self.main:
-                if self.main[i] in Jeu.Liste4:
-                    pot.append(self.main[i].pop(0))
-                    return self.nom + " a posé " + pot[-1], False
-        if pot[-1] in Jeu.Liste5:
+                if self.main[i] in Jeu.liste4:
+                    pot.append(self.main.pop(i))
+                    return False
+        if pot[-1] in Jeu.liste5:
             for i in self.main:
-                if self.main[i] in Jeu.Liste5:
-                    pot.append(self.main[i].pop(0))
-                    return self.nom + " a posé " + pot[-1], False
-        if pot[-1] in Jeu.Liste6:
+                if self.main[i] in Jeu.liste5:
+                    pot.append(self.main.pop(i))
+                    return False
+        if pot[-1] in Jeu.liste6:
             for i in self.main:
-                if self.main[i] in Jeu.Liste6:
-                    pot.append(self.main[i].pop(0))
-                    return self.nom + " a posé " + pot[-1], False
-        if pot[-1] in Jeu.Liste7:
+                if self.main[i] in Jeu.liste6:
+                    pot.append(self.main.pop(i))
+                    return False
+        if pot[-1] in Jeu.liste7:
             for i in self.main:
-                if self.main[i] in Jeu.Liste7:
-                    pot.append(self.main[i].pop(0))
-                    return self.nom + " a posé " + pot[-1], False
-        if pot[-1] in Jeu.Liste8:
+                if self.main[i] in Jeu.liste7:
+                    pot.append(self.main.pop(i))
+                    return False
+        if pot[-1] in Jeu.liste8:
             for i in self.main:
-                if self.main[i] in Jeu.Liste8:
-                    pot.append(self.main[i].pop(0))
-                    return self.nom + " a posé " + pot[-1], False
-        if pot[-1] in Jeu.Liste9:
+                if self.main[i] in Jeu.liste8:
+                    pot.append(self.main.pop(i))
+                    return False
+        if pot[-1] in Jeu.liste9:
             for i in self.main:
-                if self.main[i] in Jeu.Liste9:
-                    pot.append(self.main[i].pop(0))
-                    return self.nom + " a posé " + pot[-1], False
+                if self.main[i] in Jeu.liste9:
+                    pot.append(self.main.pop(i))
+                    return False
 
         else:
             for i in self.main:
-                if self.main[i] in Jeu.ListeNoir:
-                    if self.main[i] == 'C':
+                if self.main[i] in Jeu.listeNoir:
+                    if self.main[i] == "C":
                         c = random.choice(listec)
                         pot.append(c)
                         self.main.pop(0)
-                        return self.nom + " a posé "+ self.pot[-1], False
+                        return False
                     else:
                         c = random.choice(listec)
                         pot.append(self.main.pop(0)+c)
-                        return self.nom + " a posé "+ self.pot[-1], False
+                        return False
                 else:
                     self.main.append(pioche.pop(0))
+                    return False
         return "Erreur ordinateur n'a pas joué",False

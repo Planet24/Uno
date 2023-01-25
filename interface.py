@@ -43,6 +43,13 @@ class Interface:
         self.screen.blit(Images.dicoCartesImages['D'],
                          (Coord.pioche_x-220, Coord.pioche_y))
 
+    def ResetCartes(self):
+        """
+        Affiche les emplacements où les joueurs posent les cartes,
+        ainsi que la carte du dessus sur chaque emplacement.
+        """
+        pygame.draw.rect(self.screen, Couleurs.WHITE, (200, 50, 1100, 150))
+        pygame.draw.rect(self.screen, Couleurs.WHITE, (200, 500, 1100, 150))
 
     def afficheEmplacementsCartes(self):
         """

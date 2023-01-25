@@ -58,6 +58,10 @@ class Images:
     image_changement_couleur= pygame.transform.scale(pygame.image.load('./images/Wild.jpg'),(110, 150))
     image_plus_quatre= pygame.transform.scale(pygame.image.load('./images/Wild_Draw_4.jpg'),(110, 150))
     image_back= pygame.transform.scale(pygame.image.load('./images/Back.png'), (110, 150))
+    image_bleu = pygame.transform.scale(pygame.image.load('./images/bleu.png'), (110, 150))
+    image_jaune = pygame.transform.scale(pygame.image.load('./images/jaune.png'), (110, 150))
+    image_rouge = pygame.transform.scale(pygame.image.load('./images/rouge.png'), (110, 150))
+    image_vert = pygame.transform.scale(pygame.image.load('./images/vert.png'), (110, 150))
 
 
     dicoCartesImages = {'B0': image_zero_bleu,
@@ -114,9 +118,9 @@ class Images:
                         'R+': image_plus2_rouge,
                         'C': image_changement_couleur,
                         '4+': image_plus_quatre,
-                        'J': image_changement_couleur,
-                        'V': image_changement_couleur,
-                        'B': image_changement_couleur,
-                        'R': image_changement_couleur,
+                        'J': image_jaune,
+                        'V': image_vert,
+                        'B': image_bleu,
+                        'R': image_rouge,
                         'D' : image_back
                         }
