@@ -82,7 +82,7 @@ class Joueur():
                         self.main.append(pioche.pop(0))
                         pot.append('J')
                     return self.nom + " a pioché 4 cartes", False
-        elif pot[-1] == "4+B":
+        if pot[-1] == "4+B":
             for i in self.main:
                 if self.main[i] == "B+":
                     pot.append(self.main[i].pop(0))
@@ -96,7 +96,7 @@ class Joueur():
                         self.main.append(pioche.pop(0))
                         pot.append('B')
                     return self.nom + " a pioché 4 cartes", False
-        elif pot[-1] == "4+R":
+        if pot[-1] == "4+R":
             for i in self.main:
                 if self.main[i] == "R+":
                     pot.append(self.main[i].pop(0))
@@ -110,7 +110,7 @@ class Joueur():
                         self.main.append(pioche.pop(0))
                         pot.append('R')
                     return self.nom + " a pioché 4 cartes", False
-        elif pot[-1] == "4+V":
+        if pot[-1] == "4+V":
             for i in self.main:
                 if self.main[i] == "V+":
                     pot.append(self.main[i].pop(0))
@@ -125,7 +125,7 @@ class Joueur():
                         pot.append('V')
                     return self.nom + " a pioché 4 cartes", False
 
-        elif pot[-1] in Jeu.Listeplus2:
+        if pot[-1] in Jeu.Listeplus2:
             for i in self.main:
                 if self.main[i] in Jeu.Listeplus2:
                     pot.append(self.main[i].pop(0))
@@ -140,68 +140,68 @@ class Joueur():
                         pot.append(pot[-1][0])
                     return self.nom + " a pioché 2 cartes", False
 
-        elif pot[-1] in Jeu.ListeJaune:
+        if pot[-1] in Jeu.ListeJaune:
             for i in self.main:
                 if self.main[i] in Jeu.ListeJaune:
                     pot.append(self.main[i].pop(0))
                     return self.nom + " a posé " + pot[-1], False
-        elif pot[-1] in Jeu.ListeBleu:
+        if pot[-1] in Jeu.ListeBleu:
             for i in self.main:
                 if self.main[i] in Jeu.ListeBleu:
                     pot.append(self.main[i].pop(0))
                     return self.nom + " a posé " + pot[-1], False
-        elif pot[-1] in Jeu.ListeRouge:
+        if pot[-1] in Jeu.ListeRouge:
             for i in self.main:
                 if self.main[i] in Jeu.ListeRouge:
                     pot.append(self.main[i].pop(0))
                     return self.nom + " a posé " + pot[-1], False
-        elif pot[-1] in Jeu.ListeVert:
+        if pot[-1] in Jeu.ListeVert:
             for i in self.main:
                 if self.main[i] in Jeu.ListeVert:
                     pot.append(self.main[i].pop(0))
                     return self.nom + " a posé " + pot[-1], False
 
-        elif pot[-1] in Jeu.Liste1:
+        if pot[-1] in Jeu.Liste1:
             for i in self.main:
                 if self.main[i] in Jeu.Liste1:
                     pot.append(self.main[i].pop(0))
                     return self.nom + " a posé " + pot[-1], False
-        elif pot[-1] in Jeu.Liste2:
+        if pot[-1] in Jeu.Liste2:
             for i in self.main:
                 if self.main[i] in Jeu.Liste2:
                     pot.append(self.main[i].pop(0))
                     return self.nom + " a posé " + pot[-1], False
-        elif pot[-1] in Jeu.Liste3:
+        if pot[-1] in Jeu.Liste3:
             for i in self.main:
                 if self.main[i] in Jeu.Liste3:
                     pot.append(self.main[i].pop(0))
                     return self.nom + " a posé " + pot[-1], False
-        elif pot[-1] in Jeu.Liste4:
+        if pot[-1] in Jeu.Liste4:
             for i in self.main:
                 if self.main[i] in Jeu.Liste4:
                     pot.append(self.main[i].pop(0))
                     return self.nom + " a posé " + pot[-1], False
-        elif pot[-1] in Jeu.Liste5:
+        if pot[-1] in Jeu.Liste5:
             for i in self.main:
                 if self.main[i] in Jeu.Liste5:
                     pot.append(self.main[i].pop(0))
                     return self.nom + " a posé " + pot[-1], False
-        elif pot[-1] in Jeu.Liste6:
+        if pot[-1] in Jeu.Liste6:
             for i in self.main:
                 if self.main[i] in Jeu.Liste6:
                     pot.append(self.main[i].pop(0))
                     return self.nom + " a posé " + pot[-1], False
-        elif pot[-1] in Jeu.Liste7:
+        if pot[-1] in Jeu.Liste7:
             for i in self.main:
                 if self.main[i] in Jeu.Liste7:
                     pot.append(self.main[i].pop(0))
                     return self.nom + " a posé " + pot[-1], False
-        elif pot[-1] in Jeu.Liste8:
+        if pot[-1] in Jeu.Liste8:
             for i in self.main:
                 if self.main[i] in Jeu.Liste8:
                     pot.append(self.main[i].pop(0))
                     return self.nom + " a posé " + pot[-1], False
-        elif pot[-1] in Jeu.Liste9:
+        if pot[-1] in Jeu.Liste9:
             for i in self.main:
                 if self.main[i] in Jeu.Liste9:
                     pot.append(self.main[i].pop(0))
