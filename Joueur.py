@@ -4,29 +4,12 @@ import random
 
 class Joueur():
     """Crée un joueur de la partie."""
-    def __init__(self, nom, orientation, points, pioche):
+    def __init__(self, nom, orientation, pioche):
         """Initialise un joueur."""
         self.nom = nom
         self.orientation = orientation
-        self.points = points
         self.main = []
         self.distribueJoueur(pioche)
-        if orientation == 'sud':
-            self.emplacements_x = 350
-            self.emplacements_y = Coord.length - 310
-            self.emplacements_width = 110 * 7
-            self.emplacements_length = 150
-            self.rotation = False
-            self.coord_nom = (int(Coord.width / 2) - 50, Coord.length - 340)
-        elif orientation == 'nord':
-            self.emplacements_x = 350
-            self.emplacements_y = 50
-            self.emplacements_width = 110 * 7
-            self.emplacements_length = 150
-            self.rotation = False
-            self.coord_nom = (int(Coord.width / 2) - 50, 220)
-        else:
-            print('Erreur : mauvaise orientation.')
 
     def trieMain(self):
         """
@@ -39,22 +22,22 @@ class Joueur():
                 while len(JauneMain) > i:
                     i += 1
                 JauneMain.insert(i, carte)
-            elif carte in Jeu.listeBleu:
+            if carte in Jeu.listeBleu:
                 if carte in BleuMain:
                     BleuMain.insert(BleuMain.index(carte), carte)
                 else:
                     BleuMain.append(carte)
-            elif carte in Jeu.listeRouge:
+            if carte in Jeu.listeRouge:
                 if carte in RougeMain:
                     RougeMain.insert(RougeMain.index(carte), carte)
                 else:
                     RougeMain.append(carte)
-            elif carte in Jeu.listeRouge:
+            if carte in Jeu.listeRouge:
                 if carte in VertMain:
                     VertMain.insert(VertMain.index(carte), carte)
                 else:
                     VertMain.append(carte)
-            elif carte in Jeu.listeNoir:
+            if carte in Jeu.listeNoir:
                 NoirMain.append(carte)
         self.main = JauneMain + BleuMain + RougeMain + VertMain + NoirMain
 

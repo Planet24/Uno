@@ -125,28 +125,3 @@ class Interface:
             self.screen.blit(Images.dicoCartesImages['D'],
                              (emplacement +espace*i, 50))
             i+=1
-
-run = True
-pot = ['B0','B1','B2','J0']
-liste_cartes= ['B0','B1','B2','J0','J1','J2','4+', 'R0', 'R1','4+']
-#nom = input("Votre nom : ")
-while run :
-
-    pygame.init()
-    fenetre = Interface()
-    fenetre.affichePioche()
-    fenetre.afficheCartePioche()
-    fenetre.afficheCentre()
-    #fenetre.afficheNom(nom)
-    fenetre.afficheEmplacementsCartes()
-    listex=fenetre.AfficheMain(liste_cartes)
-    fenetre.AfficheMainOrdi(pot)
-    run=fenetre.ClickSouris(run)
-    pos_x_J, pos_y_J, pos_x_P, pos_y_P = fenetre.TestClickSourisZone(listex)
-    if pos_x_P == True and pos_y_P == True:
-        print("pioche")
-    if pos_x_J == True and pos_y_J == True:
-        print("le joueur place une carte")
-        print(liste_cartes[fenetre.indice_carte[0]]) #affiche la carte courante
-    fenetre.afficheCarteCentre(pot)
-    pygame.display.update()
