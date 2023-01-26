@@ -122,5 +122,9 @@ class Images:
                         'V': image_vert,
                         'B': image_bleu,
                         'R': image_rouge,
-                        'D' : image_back
+                        '4+J': image_jaune,
+                        '4+V': image_vert,
+                        '4+B': image_bleu,
+                        '4+R': image_rouge,
+                        'D': image_back
                         }

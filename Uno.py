@@ -18,28 +18,34 @@ fenetre.affichePioche()
 fenetre.afficheCentre()
 fenetre.afficheCartePioche()
 fenetre.afficheEmplacementsCartes()
+
 while run:
+    fenetre.ResetCentre()
     fenetre.afficheCarteCentre(partie.pot)
     liste_cartes = partie.listeJoueurs[0].main
     listex=fenetre.AfficheMain(liste_cartes)
     fenetre.AfficheMainOrdi(partie.listeJoueurs[1].main)
     pygame.display.update()
+    #robot joue
+    Joueur.joue(partie.listeJoueurs[1].main, partie.pioche, partie.pot)
+    print(partie.pot)
+    fenetre.ResetCentre()
+    fenetre.afficheCarteCentre(partie.pot)
+    pygame.display.update()
+    #joueur joue
     run=fenetre.ClickSouris(run)
     fenetre.pos = (0,0)
     while fenetre.pos == (0,0):
         fenetre.ClickSouris(run)
-    print(fenetre.pos)
     pos_x_J, pos_y_J, pos_x_P, pos_y_P = fenetre.TestClickSourisZone(listex)
     if pos_x_P == True and pos_y_P == True:
         carteChoisie = "pioche"
     if pos_x_J == True and pos_y_J == True:
-        print("le joueur place une carte")
-        print(liste_cartes[fenetre.indice_carte[0]]) #affiche la carte courante
         carteChoisie = liste_cartes[fenetre.indice_carte[0]]
-        print(carteChoisie)
-        print(carteChoisie)
         indice = fenetre.indice_carte[0]
-    fenetre.afficheCarteCentre(partie.pot)
+        #print(liste_cartes, indice)
+    #fenetre.afficheCarteCentre(partie.pot)
     fenetre.ResetCartes()
     partie.joueJoueurSud(partie.pioche, partie.pot, carteChoisie,indice)  # cartechoisie = click
+    #print(carteChoisie)
     pygame.display.update()

@@ -33,9 +33,7 @@ class Partie:
             self.pioche.append("VS")
             self.pioche.append("VR")
         self.pioche.extend(Jeu.listeNoir[0:]*4)
-        print(self.pioche)
         shuffle(self.pioche)
-        print(self.pioche)
         self.pot = [self.pioche.pop(0)]
         self.listeJoueurs = self.creationJoueurs(nom)
 
@@ -125,7 +123,7 @@ class Partie:
                     self.listeJoueurs[0].main.append(pioche.pop(0))
                 pot.append(pot[-1][0])
                 return False
-########################################################################################
+
         if pot[-1] in Jeu.listeJaune:
             if carteChoisie in Jeu.listeJaune:
                 pot.append(self.listeJoueurs[0].main.pop(indice))
@@ -185,7 +183,7 @@ class Partie:
             pot.append(c)
             self.listeJoueurs[0].main.pop(indice)
             return False
-        if carteChoisie == "+4":
+        if carteChoisie == "4+":
             c = random.choice(listec)
             pot.append(self.listeJoueurs[0].main.pop(indice) + c)
             return False
