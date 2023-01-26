@@ -33,7 +33,9 @@ class Partie:
             self.pioche.append("VR")
         self.pioche.extend(Jeu.listeNoir[0:]*4)
         shuffle(self.pioche)
-        self.pot = [self.pioche.pop(0)]
+        for elem in self.pioche:
+            if elem not in Jeu.listeNoir:
+                self.pot = [self.pioche.pop(self.pioche.index(elem))]
         self.listeJoueurs = self.creationJoueurs(nom)
 
     def creationJoueurs(self, nom):
