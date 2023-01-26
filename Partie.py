@@ -46,6 +46,9 @@ class Partie:
             liste.append(Joueur(listeNoms[i],listeOrientations[i],self.pioche))
         return liste
 
+    def finPioche(self, pioche, pot):
+        if len(pioche) <= 4:
+            pioche.extend(pot[0:len(pot)-2])
     def joueJoueurSud(self, pioche, pot, carteChoisie, indice): #cartechoisie = click
         """
         Fait jouer le joueur sud (humain) en fonction de la carte et de

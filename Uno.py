@@ -32,6 +32,7 @@ while run:
     fenetre.ResetCentre()
     fenetre.afficheCarteCentre(partie.pot)
     pygame.display.update()
+    partie.finPioche(partie.pioche, partie.pot)
     #joueur joue
     run=fenetre.ClickSouris(run)
     fenetre.pos = (0,0)
@@ -48,4 +49,5 @@ while run:
     fenetre.ResetCartes()
     partie.joueJoueurSud(partie.pioche, partie.pot, carteChoisie,indice)  # cartechoisie = click
     #print(carteChoisie)
+    partie.finPioche(partie.pioche, partie.pot)
     pygame.display.update()
