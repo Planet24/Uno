@@ -12,7 +12,7 @@ class Interface:
         self.bgColor = Couleurs.WHITE
         self.indice_carte=[0]
         self.pos = (0,0)
-        self.font = pygame.font.SysFont('impact', 20)
+        self.myfont = pygame.font.SysFont('impact', 20)
         self.screen = pygame.display.set_mode([self.width, self.length])
         self.screen.fill(self.bgColor)
         pygame.display.set_caption('Uno')
@@ -48,8 +48,8 @@ class Interface:
         Affiche les emplacements où les joueurs posent les cartes,
         ainsi que la carte du dessus sur chaque emplacement.
         """
-        pygame.draw.rect(self.screen, Couleurs.WHITE, (200, 50, 1100, 150))
-        pygame.draw.rect(self.screen, Couleurs.WHITE, (200, 500, 1100, 150))
+        pygame.draw.rect(self.screen, Couleurs.WHITE, (200, 50, 1300, 150))
+        pygame.draw.rect(self.screen, Couleurs.WHITE, (200, 500, 1300, 150))
     def ResetCentre(self):
         """
         Affiche la pioche au centre à droite.
