@@ -10,7 +10,7 @@ class Interface:
         self.width = Coord.width
         self.length = Coord.length
         self.bgColor = Couleurs.WHITE
-        self.indice_carte=[]
+        self.indice_carte=[0]
         self.pos = (0,0)
         self.font = pygame.font.SysFont('impact', 20)
         self.screen = pygame.display.set_mode([self.width, self.length])
@@ -39,6 +39,15 @@ class Interface:
         self.screen.blit(Images.dicoCartesImages[pot[-1]],
                          (Coord.pioche_x, Coord.pioche_y))
 
+    def ResetCentre(self):
+        """
+        Affiche la pioche au centre à droite.
+        Le dos de la carte est affiché si la pioche est non vide.
+        """
+        pygame.draw.rect(self.screen, Couleurs.BLUE,
+                         [Coord.pioche_x, Coord.pioche_y,
+                          Coord.pioche_width, Coord.pioche_length])
+
     def afficheCartePioche(self):
         self.screen.blit(Images.dicoCartesImages['D'],
                          (Coord.pioche_x-220, Coord.pioche_y))
@@ -65,7 +74,7 @@ class Interface:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 self.pos = pygame.mouse.get_pos()
             if event.type == pygame.QUIT:
-                run = False
+                exit()
         return run
     def TestClickSourisZone(self,listex):
         pos_y_J = False
@@ -82,11 +91,11 @@ class Interface:
                 if i == n-1:
                     if self.pos[0] > listex[i]:
                         pos_x_J = True
-                        self.indice_carte.append(i)
+                        self.indice_carte[0] = i
                         break
                 elif self.pos[0]<  listex[i+1] and self.pos[0] > listex[i]:
                     pos_x_J = True
-                    self.indice_carte.append(i)
+                    self.indice_carte[0] = i
                     break
 
                 i+=1
