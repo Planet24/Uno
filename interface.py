@@ -39,15 +39,6 @@ class Interface:
         self.screen.blit(Images.dicoCartesImages[pot[-1]],
                          (Coord.pioche_x, Coord.pioche_y))
 
-    def ResetCentre(self):
-        """
-        Affiche la pioche au centre à droite.
-        Le dos de la carte est affiché si la pioche est non vide.
-        """
-        pygame.draw.rect(self.screen, Couleurs.BLUE,
-                         [Coord.pioche_x, Coord.pioche_y,
-                          Coord.pioche_width, Coord.pioche_length])
-
     def afficheCartePioche(self):
         self.screen.blit(Images.dicoCartesImages['D'],
                          (Coord.pioche_x-220, Coord.pioche_y))
@@ -59,7 +50,14 @@ class Interface:
         """
         pygame.draw.rect(self.screen, Couleurs.WHITE, (200, 50, 1100, 150))
         pygame.draw.rect(self.screen, Couleurs.WHITE, (200, 500, 1100, 150))
-
+    def ResetCentre(self):
+        """
+        Affiche la pioche au centre à droite.
+        Le dos de la carte est affiché si la pioche est non vide.
+        """
+        pygame.draw.rect(self.screen, Couleurs.BLUE,
+                         [Coord.pioche_x, Coord.pioche_y,
+                          Coord.pioche_width, Coord.pioche_length])
     def afficheEmplacementsCartes(self):
         """
         Affiche les emplacements où les joueurs posent les cartes,
@@ -91,7 +89,7 @@ class Interface:
                 if i == n-1:
                     if self.pos[0] > listex[i]:
                         pos_x_J = True
-                        self.indice_carte[0] = i
+                        self.indice_carte[0] =i
                         break
                 elif self.pos[0]<  listex[i+1] and self.pos[0] > listex[i]:
                     pos_x_J = True
@@ -109,35 +107,43 @@ class Interface:
 
 
     def AfficheMain(self, liste_cartes):
-        #la main peut contenir jusqu'a 20 cartes
+        #la main peut contenir jusqu'a 50 cartes
         N = len(liste_cartes)
-        espace = 1100 / N
-        emplacement= 200
-        i=0
-        listex=[]
-        for cartes in liste_cartes:
-            self.screen.blit(Images.dicoCartesImages[cartes],
-                             (emplacement +espace*i, 500))
-            listex.append(emplacement +espace*i)
-            i+=1
+        listex = []
+        if N ==0:
+            pygame.draw.rect(self.screen, Couleurs.WHITE, (200, 50, 1100, 150))
+            textsurface = self.myfont.render('Tu as gagné !!!', False, Couleurs.GREEN)
+            self.screen.blit(textsurface, (0, 0))
+            exit()
+        else :
+            espace = 1100 / N
+            emplacement= 200
+            i=0
+            for cartes in liste_cartes:
+                self.screen.blit(Images.dicoCartesImages[cartes],
+                                 (emplacement +espace*i, 500))
+                listex.append(emplacement +espace*i)
+                i+=1
         return listex
 
-    def afficheNom(self, nom):
-        """
-        Affiche les noms des joueurs.
-        Celui du joueur qui joue apparait avec un fond vert."""
-
-        color = Couleurs.GREEN
-        text = self.font.render(nom, 1, Couleurs.BLUE, color)
-        self.screen.blit(text, int(Coord.width / 2) - 50, Coord.length - 340)
 
     def AfficheMainOrdi(self, liste_cartes):
         #la main peut contenir jusqu'a 20 cartes
         N = len(liste_cartes)
-        espace = 1100 / N
-        emplacement= 200
-        i=0
-        while i < N:
-            self.screen.blit(Images.dicoCartesImages['D'],
-                             (emplacement +espace*i, 50))
-            i+=1
+        if N ==0:
+            pygame.draw.rect(self.screen, Couleurs.WHITE, (200, 500, 1100, 150))
+            textsurface = self.myfont.render("L'ordinateur a gagné !!!", False, Couleurs.GREEN)
+            self.screen.blit(textsurface, (0, 0))
+            exit()
+        else :
+            espace = 1100 / N
+            emplacement= 200
+            i=0
+            while i < N:
+                self.screen.blit(Images.dicoCartesImages['D'],
+                                 (emplacement +espace*i, 50))
+                i+=1
+
+    def MainVide(self,liste_cartes,joueur):
+        if len(liste_cartes) ==0:
+            print("fin de partie",joueur,"a gagné")
