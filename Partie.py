@@ -47,7 +47,27 @@ class Partie:
 
     def finPioche(self, pioche, pot):
         if len(pioche) <= 4:
+            for elem in pot:
+                if elem == "J":
+                    pot.remove("J")
+                elif elem == "B":
+                    pot.remove("B")
+                elif elem == "R":
+                    pot.remove("R")
+                elif elem == "V":
+                    pot.remove("V")
+                elif elem == "4+J":
+                    pot.remove("4+J")
+                elif elem == "4+B":
+                    pot.remove("4+B")
+                elif elem == "4+R":
+                    pot.remove("4+R")
+                elif elem == "4+V":
+                    pot.remove("4+V")
             pioche.extend(pot[0:len(pot)-2])
+            pioche.extend(Jeu.listeNoir[0:] * 4)
+            shuffle(pioche)
+
     def joueJoueurSud(self, pioche, pot, carteChoisie, indice): #cartechoisie = click
         """
         Fait jouer le joueur sud (humain) en fonction de la carte et de

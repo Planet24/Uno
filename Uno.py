@@ -1,10 +1,7 @@
 from Joueur import Joueur
 from Partie import Partie
-from Jeu import Jeu
 from interface import Interface
-from couleurs import Couleurs
-from cartes import Images
-from coord import Coord
+import time
 import pygame
 indice = 0
 nom = 'j'
