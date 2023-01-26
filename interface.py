@@ -13,7 +13,7 @@ class Interface:
         self.bgColor = Couleurs.WHITE
         self.indice_carte=[0]
         self.pos = (0,0)
-        self.myfont = pygame.font.SysFont('impact', 200)
+        self.myfont = pygame.font.SysFont('impact', 150)
         self.screen = pygame.display.set_mode([self.width, self.length])
         self.screen.fill(self.bgColor)
         pygame.display.set_caption('Uno')
@@ -127,7 +127,6 @@ class Interface:
                                  (emplacement +espace*i, 500))
                 listex.append(emplacement +espace*i)
                 i+=1
-        time.sleep(2)
         return listex
 
 
@@ -136,7 +135,7 @@ class Interface:
         N = len(liste_cartes)
         if N ==0:
             #pygame.draw.rect(self.screen, Couleurs.WHITE, (200, 500, 1100, 150))
-            textsurface = self.myfont.render("L'ordinateur a gagné !!!", 1, Couleurs.GREEN)
+            textsurface = self.myfont.render("Tu as perdu...", 1, Couleurs.GREEN)
             self.screen.blit(textsurface, (0, 0))
             pygame.display.update()
             time.sleep(10)
@@ -150,6 +149,3 @@ class Interface:
                                  (emplacement +espace*i, 50))
                 i+=1
 
-    def MainVide(self,liste_cartes,joueur):
-        if len(liste_cartes) ==0:
-            print("fin de partie",joueur,"a gagné")
