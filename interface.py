@@ -3,6 +3,7 @@ import pygame
 from coord import Coord
 from couleurs import Couleurs
 from cartes import Images
+import time
 class Interface:
     """Gère l'interface du jeu."""
     def __init__(self):
@@ -12,7 +13,7 @@ class Interface:
         self.bgColor = Couleurs.WHITE
         self.indice_carte=[0]
         self.pos = (0,0)
-        self.myfont = pygame.font.SysFont('impact', 20)
+        self.myfont = pygame.font.SysFont('impact', 200)
         self.screen = pygame.display.set_mode([self.width, self.length])
         self.screen.fill(self.bgColor)
         pygame.display.set_caption('Uno')
@@ -111,9 +112,11 @@ class Interface:
         N = len(liste_cartes)
         listex = []
         if N ==0:
-            pygame.draw.rect(self.screen, Couleurs.WHITE, (200, 50, 1100, 150))
-            textsurface = self.myfont.render('Tu as gagné !!!', False, Couleurs.GREEN)
+            #pygame.draw.rect(self.screen, Couleurs.WHITE, (200, 50, 1100, 150))
+            textsurface = self.myfont.render('Tu as gagné !!!', 1, Couleurs.GREEN)
             self.screen.blit(textsurface, (0, 0))
+            pygame.display.update()
+            time.sleep(10)
             exit()
         else :
             espace = 1100 / N
@@ -124,6 +127,7 @@ class Interface:
                                  (emplacement +espace*i, 500))
                 listex.append(emplacement +espace*i)
                 i+=1
+        time.sleep(2)
         return listex
 
 
@@ -131,9 +135,11 @@ class Interface:
         #la main peut contenir jusqu'a 20 cartes
         N = len(liste_cartes)
         if N ==0:
-            pygame.draw.rect(self.screen, Couleurs.WHITE, (200, 500, 1100, 150))
-            textsurface = self.myfont.render("L'ordinateur a gagné !!!", False, Couleurs.GREEN)
+            #pygame.draw.rect(self.screen, Couleurs.WHITE, (200, 500, 1100, 150))
+            textsurface = self.myfont.render("L'ordinateur a gagné !!!", 1, Couleurs.GREEN)
             self.screen.blit(textsurface, (0, 0))
+            pygame.display.update()
+            time.sleep(10)
             exit()
         else :
             espace = 1100 / N
