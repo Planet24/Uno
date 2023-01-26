@@ -57,7 +57,7 @@ class Partie:
         if carteChoisie == "pioche": #piocher une carte
             # pose une carte
             self.listeJoueurs[0].main.append(pioche.pop(0))
-            return "".join([self.listeJoueurs[0].nom," a pioché une carte."])
+            return False
         # Si attaqué par +2 ou +4
         if pot[-1] == "4+J":
             if carteChoisie == "J+":
@@ -198,4 +198,6 @@ class Partie:
             pot.append(self.listeJoueurs[0].main.pop(indice) + c)
             return False
 
-        return "Erreur joueur n'a pas joué", False
+        else:
+            self.listeJoueurs[0].main.append(pioche.pop(0))
+            return False
