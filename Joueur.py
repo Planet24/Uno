@@ -159,6 +159,16 @@ class Joueur():
                 if i in Jeu.liste9:
                     pot.append(main.pop(main.index(i)))
                     return False
+        if pot[-1] in Jeu.listeReverse:
+            for i in main:
+                if i in Jeu.listeReverse:
+                    pot.append(main.pop(main.index(i)))
+                    return False
+        if pot[-1] in Jeu.listeStop:
+            for i in main:
+                if i in Jeu.listeStop:
+                    pot.append(main.pop(main.index(i)))
+                    return False
 
         else:
             for i in main:

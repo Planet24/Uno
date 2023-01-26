@@ -6,6 +6,8 @@ class Jeu:
     listeRouge = ["R", "R0", "R1", "R2", "R3", "R4", "R5", "R6", "R7", "R8", "R9", "RR", "RS", "R+"]
     listeVert = ["V", "V0", "V1", "V2", "V3", "V4", "V5", "V6", "V7", "V8", "V9", "VR", "VS", "V+"]
     listeNoir = ["C", "4+"]
+    listeReverse = ["JR","BR","RR","VR"]
+    listeStop = ["JS", "BS", "RS", "VS"]
     listeplus2 = ["J+", "B+", "R+", "V+"]
     listeS = ["JR", "BR", "RR", "VR"]
     listeR = ["JS", "BS", "RS", "VS"]

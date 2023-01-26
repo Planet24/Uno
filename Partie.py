@@ -1,7 +1,6 @@
 from Joueur import Joueur
 from Jeu import Jeu
 from random import shuffle
-from operator import index
 import random
 
 class Partie:
@@ -178,6 +177,14 @@ class Partie:
                 return False
         if pot[-1] in Jeu.liste9:
                 if carteChoisie in Jeu.liste9:
+                    pot.append(self.listeJoueurs[0].main.pop(indice))
+                    return False
+        if pot[-1] in Jeu.listeReverse:
+                if carteChoisie in Jeu.listeReverse:
+                    pot.append(self.listeJoueurs[0].main.pop(indice))
+                    return False
+        if pot[-1] in Jeu.listeStop:
+                if carteChoisie in Jeu.listeStop:
                     pot.append(self.listeJoueurs[0].main.pop(indice))
                     return False
 
