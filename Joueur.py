@@ -182,7 +182,5 @@ class Joueur():
                         c = random.choice(listec)
                         pot.append(main.pop(0)+c)
                         return False
-                else:
-                    main.append(pioche.pop(0))
-                    return False
-        return "Erreur ordinateur n'a pas joué",False
+            main.append(pioche.pop(0))
+            return False
