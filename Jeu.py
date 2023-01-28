@@ -9,8 +9,6 @@ class Jeu:
     listeReverse = ["JR","BR","RR","VR"]
     listeStop = ["JS", "BS", "RS", "VS"]
     listeplus2 = ["J+", "B+", "R+", "V+"]
-    listeS = ["JR", "BR", "RR", "VR"]
-    listeR = ["JS", "BS", "RS", "VS"]
     liste0 = ["J0", "B0", "R0", "V0"]
     liste1 = ["J1", "B1", "R1", "V1"]
     liste2 = ["J2", "B2", "R2", "V2"]

@@ -178,9 +178,9 @@ class Joueur():
                         pot.append(c)
                         main.pop(0)
                         return False
-                    elif i == "4+":
+                    if i == "4+":
                         c = random.choice(listec)
-                        pot.append(main.pop(0)+c)
+                        pot.append(main.pop(main.index(i))+c)
                         return False
             main.append(pioche.pop(0))
             return False
