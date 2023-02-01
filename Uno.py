@@ -5,7 +5,7 @@ from interface import Interface
 import time
 import pygame
 indice = 0
-nom = 'j'
+nom = 'joueur'
 #input("Votre nom : ")
 #carteChoisie = 'J2'
 run = True
