@@ -55,7 +55,7 @@ while run:
         if pos_x_J == True and pos_y_J == True:
             carteChoisie = liste_cartes[fenetre.indice_carte[0]]
             indice = fenetre.indice_carte[0]
-            #print(liste_cartes, indice)
+            #print(liste_cartes, indice)gg
         #fenetre.afficheCarteCentre(partie.pot)
         #fenetre.ResetCartes()
         partie.joueJoueurSud(partie.pioche, partie.pot, carteChoisie,indice)  # cartechoisie = click

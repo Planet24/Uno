@@ -76,7 +76,7 @@ class Partie:
         l"endroit choisi.
         """
         listec = ["J", "B", "R", "V"]
-        if carteChoisie == "pioche": #piocher une carte
+        if carteChoisie == "pioche" and pot[-1] not in Jeu.listeplus2 and pot[-1] != "+4": #piocher une carte
             # pose une carte
             self.listeJoueurs[0].main.append(pioche.pop(0))
             return False
