@@ -18,6 +18,11 @@ class Interface:
         self.screen.fill(self.bgColor)
         pygame.display.set_caption('Uno')
 
+    def AfficheFond(self):
+        fond = Images.dicoCartesImages['Fond']
+        fond = fond.convert()
+        self.screen.blit(fond, (0, 0))
+        pygame.display.flip()
 
     def affichePioche(self):
         """

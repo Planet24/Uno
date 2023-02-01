@@ -15,6 +15,7 @@ i = 0
 pygame.init()
 fenetre = Interface()
 partie = Partie(nom)
+fenetre.AfficheFond()
 fenetre.affichePioche()
 fenetre.afficheCentre()
 fenetre.afficheCartePioche()
@@ -61,6 +62,8 @@ while run:
         partie.joueJoueurSud(partie.pioche, partie.pot, carteChoisie,indice)  # cartechoisie = click
         i = 0
     fenetre.ResetCartes()
+    fenetre.AfficheFond()
+    fenetre.afficheCartePioche()
     playJ = True
     #print(carteChoisie)
     partie.finPioche(partie.pioche, partie.pot)

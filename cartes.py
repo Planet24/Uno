@@ -1,5 +1,4 @@
 import pygame
-from skimage.transform import resize
 
 class Images:
     """Importe les images du jeu."""
@@ -66,7 +65,7 @@ class Images:
     image_jaune_4plus = pygame.transform.scale(pygame.image.load('./images/jaune4+.png'), (110, 150))
     image_rouge_4plus = pygame.transform.scale(pygame.image.load('./images/rouge4+.png'), (110, 150))
     image_vert_4plus = pygame.transform.scale(pygame.image.load('./images/vert4+.png'), (110, 150))
-
+    image_fond = pygame.transform.scale(pygame.image.load('./images/fond.png'), (1500, 800))
 
     dicoCartesImages = {'B0': image_zero_bleu,
                         'B1': image_un_bleu,
@@ -130,5 +129,6 @@ class Images:
                         '4+V': image_vert_4plus,
                         '4+B': image_bleu_4plus,
                         '4+R': image_rouge_4plus,
-                        'D': image_back
+                        'D': image_back,
+                        'Fond': image_fond
                         }
