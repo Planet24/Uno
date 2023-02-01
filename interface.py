@@ -118,7 +118,7 @@ class Interface:
         listex = []
         if N ==0:
             #pygame.draw.rect(self.screen, Couleurs.WHITE, (200, 50, 1100, 150))
-            textsurface = self.myfont.render('Tu as gagné !!!', 1, Couleurs.GREEN)
+            textsurface = self.myfont.render('Tu as gagné !!!', 1, Couleurs.WHITE)
             self.screen.blit(textsurface, (0, 0))
             pygame.display.update()
             time.sleep(10)
@@ -140,7 +140,7 @@ class Interface:
         N = len(liste_cartes)
         if N ==0:
             #pygame.draw.rect(self.screen, Couleurs.WHITE, (200, 500, 1100, 150))
-            textsurface = self.myfont.render("Tu as perdu...", 1, Couleurs.GREEN)
+            textsurface = self.myfont.render("Tu as perdu...", 1, Couleurs.WHITE)
             self.screen.blit(textsurface, (0, 0))
             pygame.display.update()
             time.sleep(10)
