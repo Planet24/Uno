@@ -170,17 +170,16 @@ class Joueur():
                     pot.append(main.pop(main.index(i)))
                     return False
 
-        else:
-            for i in main:
-                if i in Jeu.listeNoir:
-                    if i == "C":
-                        c = random.choice(listec)
-                        pot.append(c)
-                        main.pop(0)
-                        return False
-                    if i == "4+":
-                        c = random.choice(listec)
-                        pot.append(main.pop(main.index(i))+c)
-                        return False
-            main.append(pioche.pop(0))
-            return False
+        for i in main:
+            if i in Jeu.listeNoir:
+                if i == "C":
+                    c = random.choice(listec)
+                    pot.append(c)
+                    main.pop(0)
+                    return False
+                if i == "4+":
+                    c = random.choice(listec)
+                    pot.append(main.pop(main.index(i))+c)
+                    return False
+        main.append(pioche.pop(0))
+        return False
