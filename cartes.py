@@ -62,6 +62,10 @@ class Images:
     image_jaune = pygame.transform.scale(pygame.image.load('./images/jaune.png'), (110, 150))
     image_rouge = pygame.transform.scale(pygame.image.load('./images/rouge.png'), (110, 150))
     image_vert = pygame.transform.scale(pygame.image.load('./images/vert.png'), (110, 150))
+    image_bleu_4plus = pygame.transform.scale(pygame.image.load('./images/bleu4+.png'), (110, 150))
+    image_jaune_4plus = pygame.transform.scale(pygame.image.load('./images/jaune4+.png'), (110, 150))
+    image_rouge_4plus = pygame.transform.scale(pygame.image.load('./images/rouge4+.png'), (110, 150))
+    image_vert_4plus = pygame.transform.scale(pygame.image.load('./images/vert4+.png'), (110, 150))
 
 
     dicoCartesImages = {'B0': image_zero_bleu,
@@ -122,9 +126,9 @@ class Images:
                         'V': image_vert,
                         'B': image_bleu,
                         'R': image_rouge,
-                        '4+J': image_jaune,
-                        '4+V': image_vert,
-                        '4+B': image_bleu,
-                        '4+R': image_rouge,
+                        '4+J': image_jaune_4plus,
+                        '4+V': image_vert_4plus,
+                        '4+B': image_bleu_4plus,
+                        '4+R': image_rouge_4plus,
                         'D': image_back
                         }
